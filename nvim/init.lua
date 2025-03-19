@@ -1,7 +1,7 @@
--- Set leader key to Space
+-- 🛠 Set leader key early
 vim.g.mapleader = " "
 
--- Ensure Lazy.nvim is installed
+-- 🔹 Ensure Lazy.nvim is installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -12,23 +12,30 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Load Lazy.nvim and Plugins
+-- 🔥 Lazy.nvim Plugin Manager Setup
 require("lazy").setup({
-    "catppuccin/nvim", -- Theme
-    "nvim-telescope/telescope.nvim", -- Fuzzy finder
-    "nvim-tree/nvim-tree.lua", -- File explorer
-    "neovim/nvim-lspconfig", -- LSP support
+    -- 🌙 Theme
+    "catppuccin/nvim",
+
+    -- 🔎 Navigation
+    { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+    "nvim-tree/nvim-tree.lua",
+
+    -- 🧠 Syntax Highlighting & LSP
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp", -- Autocompletion
     "hrsh7th/cmp-nvim-lsp", -- LSP completion
-    "nvim-lua/plenary.nvim", -- Required dependency for many plugins
 })
 
--- Apply Catppuccin Theme
+-- 🎨 Apply Catppuccin Theme
 vim.cmd.colorscheme "catppuccin"
 
--- Neovim Basic Settings
+-- ✅ Improved Neovim Defaults
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.clipboard = "unnamedplus" -- System clipboard
+vim.opt.undofile = true -- Persistent undo
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -37,15 +44,40 @@ vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
+vim.opt.mouse = "a"
 
--- Keybindings
-vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = true })
+-- 🏗 LSP Setup (Following Kickstart.nvim)
+local lspconfig = require("lspconfig")
+lspconfig.ts_ls.setup({})
+lspconfig.pyright.setup({})
+lspconfig.lua_ls.setup({})
 
--- Configure nvim-tree
+-- ⚡ Autocompletion
+local cmp = require("cmp")
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ["<Tab>"] = cmp.mapping.select_next_item(),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    }),
+    sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+    }),
+})
+
+-- 🔎 Configure Telescope (Fuzzy Finder)
+require("telescope").setup({
+    defaults = {
+        mappings = {
+            i = {
+                ["<C-u>"] = false, -- Remove clearing
+                ["<C-d>"] = false,
+            },
+        },
+    },
+})
+
+-- 📂 Configure NvimTree (File Explorer)
 require("nvim-tree").setup({
     disable_netrw = true,
     hijack_netrw = true,
@@ -55,22 +87,34 @@ require("nvim-tree").setup({
     },
 })
 
--- LSP Setup
-local lspconfig = require("lspconfig")
-lspconfig.tsserver.setup({})
-lspconfig.pyright.setup({})
-lspconfig.lua_ls.setup({})
+-- 🎯 Keybindings (Following Kickstart.nvim)
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
--- Autocompletion Setup
-local cmp = require("cmp")
-cmp.setup({
-    mapping = {
-        ["<Tab>"] = cmp.mapping.select_next_item(),
-        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    },
-    sources = {
-        { name = "nvim_lsp" },
-    },
+-- 🌲 File Explorer
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+
+-- 🔎 Fuzzy Finder
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+
+-- 🏃 Window Navigation (Kickstart.nvim Style)
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+
+-- 📜 Better Scrolling
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- 📝 Quick Save
+keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "<leader>q", ":q<CR>", opts)
+
+-- 🌙 Auto-Install Treesitter
+require("nvim-treesitter.configs").setup({
+    ensure_installed = { "lua", "typescript", "javascript", "python" },
+    highlight = { enable = true },
 })
 
