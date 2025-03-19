@@ -26,6 +26,9 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp", -- Autocompletion
     "hrsh7th/cmp-nvim-lsp", -- LSP completion
+
+    -- 🤖 AI-Powered Coding
+    "github/copilot.vim",
 })
 
 -- 🎨 Apply Catppuccin Theme
@@ -46,7 +49,7 @@ vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.mouse = "a"
 
--- 🏗 LSP Setup (Following Kickstart.nvim)
+-- 🏗 LSP Setup
 local lspconfig = require("lspconfig")
 lspconfig.ts_ls.setup({})
 lspconfig.pyright.setup({})
@@ -87,7 +90,7 @@ require("nvim-tree").setup({
     },
 })
 
--- 🎯 Keybindings (Following Kickstart.nvim)
+-- 🎯 Keybindings
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
@@ -98,7 +101,7 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 
--- 🏃 Window Navigation (Kickstart.nvim Style)
+-- 🏃 Window Navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -118,3 +121,6 @@ require("nvim-treesitter.configs").setup({
     highlight = { enable = true },
 })
 
+-- 🤖 Enable Copilot Automatically
+vim.g.copilot_no_tab_map = true
+vim.cmd([[autocmd VimEnter * Copilot enable]])

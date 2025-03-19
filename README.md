@@ -4,23 +4,23 @@
 
 🔥 **A beginner-friendly yet powerful dotfiles setup** for:
 
-- ✅ **Neovim Users** – A VSCode-like experience with **Lazy.nvim, Telescope, and Treesitter**.
+- ✅ **Neovim Users** – A VSCode-like experience with **Lazy.nvim, Telescope, Treesitter, and GitHub Copilot**.
 - ✅ **Tmux Lovers** – Optimized **pane navigation and smooth workflow**.
 - ✅ **Zsh Users** – Smart **aliases, Oh My Zsh, and syntax highlighting**.
 
-🎨 **Beautiful UI | 🚀 Fast & Lightweight | 🤖 AI-Ready**
+🎨 **Beautiful UI | 🚀 Fast & Lightweight | 🤖 AI-Ready (GitHub Copilot)**
 
 ---
 
 ## 📦 **What's Included?**
 
-| Component                | Features                                                                           |
-| ------------------------ | ---------------------------------------------------------------------------------- |
-| **Neovim**               | 🚀 Kickstart.nvim-based config, `Lazy.nvim`, `Telescope`, `Treesitter`, `NvimTree` |
-| **Tmux**                 | 📟 Easy navigation (`Ctrl + h/l/j/k`), `Ctrl+a` as prefix, smooth scrolling        |
-| **Zsh**                  | 🐚 Smart aliases, Oh My Zsh, syntax highlighting                                   |
-| **Theme**                | 🎨 **Catppuccin** for a modern, beautiful interface                                |
-| **LSP & AutoCompletion** | ⚡ Full LSP support, `nvim-cmp` for VSCode-like autocompletion                     |
+| Component                | Features                                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------------------------- |
+| **Neovim**               | 🚀 Kickstart.nvim-based config, `Lazy.nvim`, `Telescope`, `Treesitter`, `NvimTree`, `Copilot.vim` |
+| **Tmux**                 | 📟 Easy navigation (`Ctrl + h/l/j/k`), `Ctrl+a` as prefix, smooth scrolling                       |
+| **Zsh**                  | 🐚 Smart aliases, Oh My Zsh, syntax highlighting                                                  |
+| **Theme**                | 🎨 **Catppuccin** for a modern, beautiful interface                                               |
+| **LSP & AutoCompletion** | ⚡ Full LSP support, `nvim-cmp` for VSCode-like autocompletion                                    |
 
 ---
 
@@ -33,7 +33,7 @@ This setup will:
 - ✅ Install **Neovim, Tmux, and Zsh** (if not already installed).
 - ✅ **Backup** your existing config files (so nothing gets lost).
 - ✅ Symlink your dotfiles **for easy version control**.
-- ✅ Install all plugins via **Lazy.nvim**.
+- ✅ Install all plugins via **Lazy.nvim**, including **GitHub Copilot**.
 
 ### **📥 One-Command Installation (Recommended for macOS & Linux)**
 
@@ -47,6 +47,7 @@ git clone https://github.com/vale-c/dotfiles.git ~/.dotfiles && bash ~/.dotfiles
 - Backs up existing configurations before making changes.
 - Creates **symlinks** so all configurations are loaded correctly.
 - Installs **all required plugins** via Lazy.nvim.
+- Installs **GitHub Copilot for AI-powered coding**.
 - Sets up a **smooth and productive development environment**.
 
 ✅ **After running the install script, restart your terminal and you're ready to go!**
@@ -66,6 +67,7 @@ git clone https://github.com/vale-c/dotfiles.git ~/.dotfiles && bash ~/.dotfiles
 | **Quick save**         | `Space + w`                      |
 | **Quit Neovim**        | `Space + q`                      |
 | **Reload Plugins**     | `:Lazy reload`                   |
+| **Enable Copilot**     | `:Copilot setup`                 |
 
 ---
 
@@ -75,6 +77,7 @@ git clone https://github.com/vale-c/dotfiles.git ~/.dotfiles && bash ~/.dotfiles
 
 - Uses **`ts_ls`** (TypeScript), **`pyright`** (Python), and **`lua_ls`** (Lua) for **code intelligence**.
 - **Autocompletion** via `nvim-cmp`, `cmp-nvim-lsp`.
+- **GitHub Copilot integration** for AI-powered code suggestions.
 - **Keybindings for LSP:**
   - `gd` → **Go to definition**
   - `gr` → **Find references**
@@ -133,6 +136,7 @@ This setup is built to make your terminal experience **smoother, faster, and mor
 - 🏎️ **Lightweight & efficient** – Everything is optimized to be **blazing fast**.
 - 🔥 **Beginner-friendly yet powerful** – If you're coming from VSCode, you'll feel right at home with **intuitive shortcuts & navigation**.
 - 🛠️ **Highly customizable** – Everything is modular, so you can tweak it to fit your workflow.
+- 🤖 **AI-powered coding with GitHub Copilot** – Get intelligent suggestions as you code.
 - 📦 **Lazy.nvim for plugin management** – Keeps Neovim lightweight while ensuring all essential plugins are included.
 
 If you're looking for **a clean, smart, and easy-to-use terminal setup**, this is it. 🚀
@@ -142,4 +146,4 @@ If you're looking for **a clean, smart, and easy-to-use terminal setup**, this i
 ## 📣 Want More?
 
 - 🌟 **Star this repo!** [GitHub](https://github.com/vale-c/dotfiles)
-- 🐦 **Follow me on Twitter!** [@valecodes](https://twitter.com/valecodes)
+- 🐦 **Follow me on X!** [@valecodes](https://x.com/valecodes)
