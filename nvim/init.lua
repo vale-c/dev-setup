@@ -124,3 +124,6 @@ require("nvim-treesitter.configs").setup({
 -- 🤖 Enable Copilot Automatically
 vim.g.copilot_no_tab_map = true
 vim.cmd([[autocmd VimEnter * Copilot enable]])
+
+-- 🚀 Map <C-l> to Accept Copilot Suggestions
+vim.api.nvim_set_keymap("i", "<C-l>", 'copilot#Accept("<CR>")', { silent = true, expr = true })

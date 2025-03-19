@@ -21,6 +21,7 @@
 | **Zsh**                  | 🐚 Smart aliases, Oh My Zsh, syntax highlighting                                                  |
 | **Theme**                | 🎨 **Catppuccin** for a modern, beautiful interface                                               |
 | **LSP & AutoCompletion** | ⚡ Full LSP support, `nvim-cmp` for VSCode-like autocompletion                                    |
+| **GitHub Copilot**       | 🤖 AI-powered code suggestions for Neovim                                                         |
 
 ---
 
@@ -34,6 +35,7 @@ This setup will:
 - ✅ **Backup** your existing config files (so nothing gets lost).
 - ✅ Symlink your dotfiles **for easy version control**.
 - ✅ Install all plugins via **Lazy.nvim**, including **GitHub Copilot**.
+- ✅ Set up **keybindings for Copilot AI-powered suggestions**.
 
 ### **📥 One-Command Installation (Recommended for macOS & Linux)**
 
@@ -56,18 +58,19 @@ git clone https://github.com/vale-c/dotfiles.git ~/.dotfiles && bash ~/.dotfiles
 
 ## 🎯 **Keybindings Cheat Sheet**
 
-| Action                 | Shortcut                         |
-| ---------------------- | -------------------------------- |
-| **Find files**         | `Space + ff` (Telescope)         |
-| **Search text**        | `Space + fg` (Live Grep)         |
-| **File Explorer**      | `Space + e` (NvimTree)           |
-| **Git status**         | `gs` (Zsh alias)                 |
-| **Pane navigation**    | `Ctrl + h/j/k/l` (Tmux & Neovim) |
-| **Reload Tmux config** | `Ctrl+a r`                       |
-| **Quick save**         | `Space + w`                      |
-| **Quit Neovim**        | `Space + q`                      |
-| **Reload Plugins**     | `:Lazy reload`                   |
-| **Enable Copilot**     | `:Copilot setup`                 |
+| Action                        | Shortcut                         |
+| ----------------------------- | -------------------------------- |
+| **Find files**                | `Space + ff` (Telescope)         |
+| **Search text**               | `Space + fg` (Live Grep)         |
+| **File Explorer**             | `Space + e` (NvimTree)           |
+| **Git status**                | `gs` (Zsh alias)                 |
+| **Pane navigation**           | `Ctrl + h/j/k/l` (Tmux & Neovim) |
+| **Reload Tmux config**        | `Ctrl+a r`                       |
+| **Quick save**                | `Space + w`                      |
+| **Quit Neovim**               | `Space + q`                      |
+| **Reload Plugins**            | `:Lazy reload`                   |
+| **Enable Copilot**            | `:Copilot setup`                 |
+| **Accept Copilot Suggestion** | `Ctrl + l`                       |
 
 ---
 
@@ -104,6 +107,12 @@ git clone https://github.com/vale-c/dotfiles.git ~/.dotfiles && bash ~/.dotfiles
 - `Space + w` → **Save file**
 - `Space + q` → **Quit Neovim**
 - `:Lazy reload` → **Reload plugins instantly**
+
+### 🤖 **GitHub Copilot Integration**
+
+- **Enable Copilot for a session** → `:Copilot enable`
+- **Accept Copilot suggestions** → `Ctrl + l`
+- **Show Copilot panel** → `:Copilot panel`
 
 ---
 
